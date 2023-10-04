@@ -1,0 +1,70 @@
+
+body {
+  box-sizing:border-box;
+  margin: 0;
+  padding:0;
+  height: 100vh;
+}
+nav{
+  width:100%;
+  display:flex;
+  align-items: center;
+  height:90px;
+  max-width:1300px;
+  margin:0 auto;
+  background-color: rgb(199, 199, 211);
+}
+
+.nav--icon{
+  padding-left:10px;
+  margin-right: auto;
+}
+
+.navBarLink{
+  margin-right:10px;
+  text-decoration: none;
+}
+
+.workout{
+  display:flex;
+  margin:0 auto;
+  width: 100%;
+  max-width: 1295px;
+  gap:5px;
+  
+}
+
+.weekSidebar{
+  background-color: blue;
+  flex: 0 0 30%;
+}
+
+.workoutDays {
+  background-color: rgb(183, 183, 196);
+  flex: 0 0 70%;
+}
+
+/* Menu.jsx css */
+
+.optionMenu{
+  padding:0;
+  margin:0;
+  position:fixed;
+  z-index: 10000;
+  width:150px;
+  border-radius:5px;
+  background: #1b1a1a;
+}
+
+.optionMenu .optionItem{
+  padding:8px 10px;
+  margin:0;
+  font-size:15px;
+  color:#eee;
+  cursor:pointer;
+  border-radius:inherit;
+}
+
+.optionMenu .optionItem:hover{
+  background: #343434;
+}
