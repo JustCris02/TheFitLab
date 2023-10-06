@@ -68,3 +68,14 @@ nav{
 .optionMenu .optionItem:hover{
   background: #343434;
 }
+
+/*Exercise List*/
+.ExerciseList{
+  padding:0;
+  margin:0;
+  position:fixed;
+  z-index: 10000;
+  width:150px;
+  border-radius:5px;
+  background: #6b2020;
+}
