@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 
 
 export default function Exercise(props){
+    const[weight,setWeight]=useState();
 
     function createArray(length){
         const arr =[]
@@ -16,7 +17,11 @@ export default function Exercise(props){
         <div key={setNumber} className="set">
           <span> {setNumber}</span>
           <span> {props.reps}</span>
-          <input type ="number" placeholder='Weight'/>
+          <input type ="number" 
+          placeholder='Weight'
+          value={weight}
+          onChange={(weight)=>setWeight(weight.target.value)}
+          />
           <input type ="number" placeholder={props.reps}/>
           <input type ="checkbox"/>
         </div>
