@@ -1,6 +1,8 @@
 
 body {
   box-sizing:border-box;
+  font-family: 'Inter', sans-serif;
+  font-family: 'Public Sans', sans-serif;
   margin: 0;
   padding:0;
   height: 100vh;
@@ -16,6 +18,10 @@ nav{
 }
 
 .nav--icon{
+  text-decoration: none;
+  display:flex;
+  align-items: center;
+  gap:5px;
   padding-left:10px;
   margin-right: auto;
 }
@@ -78,4 +84,79 @@ nav{
   width:150px;
   border-radius:5px;
   background: #6b2020;
+}
+
+/*Homepage */
+
+ .homepage--container{
+  margin:auto;
+  width:1300px;
+  background-color: beige;
+  height:900px;
+ }
+.logo{
+  width:50px;
+}
+
+ul{
+  list-style-type: none;
+  margin:0;
+  padding: 0;
+}
+.tag1{
+  font-size:24px;
+  font-weight: 700;
+}
+
+.hero--tag{
+  color:#000000;
+  font-size:52px;
+  font-weight: 500;
+}
+.hero{
+  display:flex;
+  align-items: center;
+  margin-left:75px;
+  width: 1300px;
+  height:400px;
+  
+}
+
+.hero ul{
+  display:flex;
+  flex-direction: column;
+  gap:10px;
+  width: 500px;
+}
+
+.hero img{
+  width: 500px;
+  height:500px;
+}
+.hero button{
+  width: 175px;
+  padding:8px;
+  font-size:20px;
+  border-radius: 5px;
+  border-style: none;
+  background-color:#5255F3 ;
+  font-family: "Public Sans";
+  color:white;
+
+}
+
+.tag2{
+  font-size: 17px;
+  font-weight: 400;
+}
+
+/*Programs */
+.Programs{
+  width:1300px;
+  background-color: #e7b9b9;
+}
+
+.programPic{
+  width:300px;
+  height:200px;
 }

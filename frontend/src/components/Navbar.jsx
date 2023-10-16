@@ -1,11 +1,15 @@
-
+import { Link } from "react-router-dom"
+import logo from "../images/logo.png"
 
 export default function Navbar(){
     return(
         <nav>
-            <h1 className="nav--icon">TheFitLab</h1>
-            <a href="#"className="navBarLink"> Text 1</a>
-            <a href="#"className="navBarLink"> Text 2</a>
+            <Link to="/" className="nav--icon">
+                TheFitLab
+                <img src={logo} alt="FitLab logo" className="logo"/>
+            </Link>
+            <Link to="/Programs" className="navBarLink">Programs</Link>
+            <Link to="/" className="navBarLink">Sign-Up</Link>
         </nav>
     )
 }

@@ -37,7 +37,7 @@ export default function FullBody(){
     },[daysFinished])
 
     return(
-        <>
+        <div className="workout">
             <WeekSidebar weeks={weeks} />
             <div className="workoutDays">
                 <button className="Days" onClick={()=>setDay(1)}>Day 1</button>
@@ -59,7 +59,7 @@ export default function FullBody(){
                     <button className="completeWorkout" onClick={()=>finishWorkout("day3")}> Finish Workout</button>
                 </div>}
             </div>    
-        </>
+        </div>
         
     )
 
