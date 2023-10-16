@@ -151,12 +151,23 @@ ul{
 }
 
 /*Programs */
-.Programs{
+
+.Program--container{
+  padding-top:30px;
+  display:flex;
+  margin:auto;
+  gap:10px;
   width:1300px;
-  background-color: #e7b9b9;
+}
+.Programs{
+  display:flex;
+  text-decoration: none;
+  flex-direction: column;
+  gap:10px;
 }
 
 .programPic{
   width:300px;
   height:200px;
+  border-radius: 10px;
 }
