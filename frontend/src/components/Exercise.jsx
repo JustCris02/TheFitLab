@@ -43,6 +43,8 @@ export default function Exercise(props){
         <div>
             <h2>{props.name}</h2>
             <button className="seeOptions" onClick={seeOptions}>options</button>
+            <input type='number'
+            placeholder="Increase Weight By"/>
             {toggleOptions &&<Menu removeSet= {()=>removeSetFuction()}/>}
             <p>Set Target Weigth Reps</p>
             {renderSets}

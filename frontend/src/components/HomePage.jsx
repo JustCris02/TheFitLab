@@ -1,4 +1,4 @@
-import HeroImage from "./images/heroimage.jpg"
+import HeroImage from "../images/heroimage.jpg"
 
 export default function HomePage(){
     return (

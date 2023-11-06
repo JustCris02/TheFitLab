@@ -16,7 +16,7 @@ export default function Programs(){
             </Link>
             <div className ="Programs">
             <img src={Logo}alt="upperLower" className="programPic"/>
-                Create Custom
+                Create Custom Workout
             </div>
         </div>
     )
