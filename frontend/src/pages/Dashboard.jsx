@@ -4,47 +4,47 @@ import CustomExerciseImage from "../images/logo.png"
 import axios from "axios";
 
 export default function Dashboard() {
-    const [programs, setPrograms] = useState([])
-    const [title, setTitle] = useState('');
-    const [image, setImage] = useState('');
-    const [noOfDays, setNoOfDays] = useState('');
-    const [isCustomProgram, setIsCustomProgram] = useState(false);
-    const [file, setFile] = useState();
+    // const [programs, setPrograms] = useState([])
+    // const [title, setTitle] = useState('');
+    // const [image, setImage] = useState('');
+    // const [noOfDays, setNoOfDays] = useState('');
+    // const [isCustomProgram, setIsCustomProgram] = useState(false);
+    // const [file, setFile] = useState();
 
-    const getPrograms = async () => {
-        const user = JSON.parse(localStorage.getItem('user'));
-        try {
-            const { data } = await axios.get(`http://localhost:5000/api/programs?user_id=${user._id}`);
-            setPrograms(data)
-        } catch (error) {
-            console.error('Error creating user:', error.response.data.message);
-        }
-    };
+    // const getPrograms = async () => {
+    //     const user = JSON.parse(localStorage.getItem('user'));
+    //     try {
+    //         const { data } = await axios.get(`http://localhost:5000/api/programs?user_id=${user._id}`);
+    //         setPrograms(data)
+    //     } catch (error) {
+    //         console.error('Error creating user:', error.response.data.message);
+    //     }
+    // };
 
-    const savePrograms = async () => {
-        const user = JSON.parse(localStorage.getItem('user'));
-        const formData = new FormData();
-        formData.append("user_id", user._id);
-        formData.append("title", title);
-        formData.append("no_of_days", noOfDays);
-        formData.append("image", file);
-        try {
-            const { data } = await axios.post(
-                `http://localhost:5000/api/programs`,
-                formData,
-                { headers: {'Content-Type': 'multipart/form-data'}}
-            );
-            console.log(data);
-            setIsCustomProgram(false);
-            await getPrograms();
-        } catch (error) {
-            console.error('Error creating user:', error.response.data.message);
-        }
-    };
+    // const savePrograms = async () => {
+    //     const user = JSON.parse(localStorage.getItem('user'));
+    //     const formData = new FormData();
+    //     formData.append("user_id", user._id);
+    //     formData.append("title", title);
+    //     formData.append("no_of_days", noOfDays);
+    //     formData.append("image", file);
+    //     try {
+    //         const { data } = await axios.post(
+    //             `http://localhost:5000/api/programs`,
+    //             formData,
+    //             { headers: {'Content-Type': 'multipart/form-data'}}
+    //         );
+    //         console.log(data);
+    //         setIsCustomProgram(false);
+    //         await getPrograms();
+    //     } catch (error) {
+    //         console.error('Error creating user:', error.response.data.message);
+    //     }
+    // };
 
-    useEffect(() => {
-        getPrograms();
-    }, [])
+    // useEffect(() => {
+    //     getPrograms();
+    // }, [])
 
     return (
         <div className="row mt-5">

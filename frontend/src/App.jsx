@@ -26,7 +26,7 @@ export default function App(){
     
   return(
     <div className = "container">
-      <Navbar />
+      <Navbar isLogin={isLogin} logout={() => logout()} />
       <Routes>
         <Route path="/" element={<HomePage />}/>
         <Route path="/" element={<PublicRoute/>}>

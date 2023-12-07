@@ -18,8 +18,11 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Routes
-const authRoutes = require('./routes/authRoutes');
-app.use('/api', authRoutes);
+const login = require('./routes/Login');
+const signUp = require('./routes/sign-up');
+
+app.use('/', login);
+app.use('/', signUp);
 
 // Start the server
 app.listen(port, () => {
