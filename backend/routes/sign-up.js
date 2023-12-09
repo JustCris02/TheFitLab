@@ -8,8 +8,8 @@ const slug = require("slug");
 const router = express.Router();
 
 const defaultPrograms = [
-    { title: 'Full Body', no_of_days: 3, image: '../images/fullbody.jpg' },
-    { title: 'Upper Lower', no_of_days: 4, image: '../images/upperlower.jpg' }
+    { title: 'Full Body', no_of_days: 3, image: '../images/fullbody.png' },
+    { title: 'Upper Lower', no_of_days: 4, image: '../images/upperlower.jpg'}
 ];
 
 const defaultExercisesProgram1 = [
