@@ -7,6 +7,7 @@ import PublicRoute from "./routes/publicRoute"
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login"
 import SignUp from "./pages/SignUp";
+import Exercises from "./pages/Exercises";
 
 export default function App(){
 
@@ -36,6 +37,7 @@ export default function App(){
 
         <Route path="/" element={<PrivateRoute/>}>
             <Route path="/dashboard" element={<Dashboard />}/>
+            <Route path="/exercises/:id" element={<Exercises />}/>
         </Route>
 
       </Routes>

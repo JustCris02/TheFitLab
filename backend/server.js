@@ -21,12 +21,16 @@ app.use(bodyParser.json());
 const login = require('./routes/Login');
 const signUp = require('./routes/sign-up');
 const getPrograms = require("./routes/get-programs");
-const savePrograms = require("./routes/get-programs");
+const savePrograms = require("./routes/save-programs");
+const getExercises = require('./routes/get-exercises');
+const getProgram = require('./routes/get-program')
 
 app.use('/', login);
 app.use('/', signUp);
 app.use('/', getPrograms);
 app.use('/', savePrograms);
+app.use('/', getExercises);
+app.use('/', getProgram);
 
 // Start the server
 app.listen(port, () => {

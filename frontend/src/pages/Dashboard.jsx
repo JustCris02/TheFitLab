@@ -55,7 +55,7 @@ export default function Dashboard() {
                             <img src={program?.image} className="card-img-top" alt={program?.title}/>
                             <div className="card-body">
                                 <h5 className="card-title">{program?.title}</h5>
-                                <Link to={`/exercises/${program?.slug}`} className="btn btn-primary">See Workout</Link>
+                                <Link to={`/exercises/${program?._id}`} className="btn btn-primary">See Workout</Link>
                             </div>
                         </div>
                     </div>
