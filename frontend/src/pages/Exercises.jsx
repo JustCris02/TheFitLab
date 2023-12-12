@@ -80,8 +80,13 @@ export default function Exercises (){
         }
     };
 
-    const removeExercise =  () => {
-        
+    const removeExercise = async (exerciseId) => {
+        try {
+            await axios.post(`http://localhost:5000/api/exercises/${exerciseId}/remove`, {});
+            const updatedExercises = exercises.filter(exercise => exercise._id !== exerciseId);
+            setExercises(updatedExercises);
+        } catch (error) {
+        }
     }
 
     const handleIncreaseWeight = () => {
@@ -96,11 +101,36 @@ export default function Exercises (){
         
     };
 
-    const addSet = async () => {
-        
+    const addSet = async (exerciseId) => {
+        const updatedExercises = exercises.map((exercise, i) => {
+            if (exercise._id === exerciseId) {
+                exercise.sets.push({ weight: null, reps: null });
+            }
+            return exercise;
+        });
+        setExercises(updatedExercises);
+
+        try {
+            const sets = exercises.find(exercise => exercise._id === exerciseId).sets;
+            await axios.post(`http://localhost:5000/api/exercises/${exerciseId}/update/sets`, { sets });
+        } catch (error) {
+        }     
     }
 
     const removeSet = async (exerciseId) => {
+        const updatedExercises = exercises.map((exercise, i) => {
+            if (exercise._id === exerciseId) {
+                exercise.sets.pop();
+            }
+            return exercise;
+        });
+        setExercises(updatedExercises);
+
+        try {
+            const sets = exercises.find(exercise => exercise._id === exerciseId).sets;
+            await axios.post(`http://localhost:5000/api/exercises/${exerciseId}/update/sets`, { sets });
+        } catch (error) {
+        }
         
     }
     const finishExercises = async () => {
@@ -198,7 +228,7 @@ export default function Exercises (){
                         <div key={exercise._id}>
                             <div className="btn-group float-end">
                                 <button className="btn btn-danger btn-sm"
-                                        onClick={() => removeExercise()}> Remove Exercise
+                                        onClick={() => removeExercise(exercise._id)}> Remove Exercise
                                 </button>
                             </div>
                             <div className="mb-5">
@@ -249,11 +279,11 @@ export default function Exercises (){
                                     <div className="col-sm-7">
                                         <div className="btn-group float-end">
                                             <button className="btn btn-secondary btn-sm"
-                                                    onClick={() => addSet()}
+                                                    onClick={() => addSet(exerciseId)}
                                             >Add Set
                                             </button>
                                             <button className="btn btn-danger btn-sm"
-                                                    onClick={() => removeSet()}
+                                                    onClick={() => removeSet(exerciseId)}
                                             >Remove Set
                                             </button>
                                         </div>
