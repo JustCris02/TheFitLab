@@ -89,16 +89,38 @@ export default function Exercises (){
         }
     }
 
-    const handleIncreaseWeight = () => {
-        
+    const handleIncreaseWeight = (exerciseId, newWeight) => {
+        const updatedExercises = exercises.map((exercise, i) => {
+            if (exercise._id === exerciseId) {
+                exercise.increase_weight = newWeight;
+            }
+            return exercise;
+        });
+        setExercises(updatedExercises);
     };
 
-    const handleWeightChange = () => {
-       
+    const handleWeightChange = (exerciseId, index, newWeight) => {
+        const updatedExercises = exercises.map((exercise, i) => {
+            if (exercise._id === exerciseId) {
+                const updatedSets = [...exercise.sets];
+                updatedSets[index] = { ...updatedSets[index], weight: newWeight };
+                exercise.sets = updatedSets;
+            }
+            return exercise;
+        });
+        setExercises(updatedExercises);
     };
 
-    const handleRepsChange = () => {
-        
+    const handleRepsChange = (exerciseId, index, newReps) => {
+        const updatedExercises = exercises.map((exercise, i) => {
+            if (exercise._id === exerciseId) {
+                const updatedSets = [...exercise.sets];
+                updatedSets[index] = { ...updatedSets[index], reps: newReps };
+                exercise.sets = updatedSets;
+            }
+            return exercise;
+        });
+        setExercises(updatedExercises);
     };
 
     const addSet = async (exerciseId) => {
@@ -134,7 +156,13 @@ export default function Exercises (){
         
     }
     const finishExercises = async () => {
-       
+        try {
+            await axios.post(`http://localhost:5000/api/exercises/update`, {
+                exercises: exercises.filter(exercise => exercise?.day === day && exercise?.week === week)
+            });
+            await fetchExercises(program._id);
+        } catch (error) {
+        }
     }
 
 
@@ -241,7 +269,7 @@ export default function Exercises (){
                                             className="form-control"
                                             value={exercise.increase_weight === 0 ? '' : exercise.increase_weight}
                                             placeholder="Increase Weight By"
-                                            onChange={e => handleIncreaseWeight()}
+                                            onChange={e => handleIncreaseWeight(exercise._id, e.target.value)}
                                         />
                                     </div>
                                 </div>
@@ -256,14 +284,14 @@ export default function Exercises (){
                                                    placeholder='Weight'
                                                    className="form-control"
                                                    value={setNumber.weight || ''}
-                                                   onChange={(e) => handleWeightChange()}
+                                                   onChange={(e) => handleWeightChange(exercise._id, index, e.target.value)}
                                             />
                                         </div>
                                         <div className="col-auto">
                                             <input type="number"
                                                    className="form-control"
                                                    value={setNumber.reps || ''}
-                                                   onChange={(e) => handleRepsChange()}
+                                                   onChange={(e) => handleRepsChange(exercise._id, index, e.target.value)}
                                                    placeholder={`${exercise.min}-${exercise.max}`}
                                             />
                                         </div>
@@ -279,11 +307,11 @@ export default function Exercises (){
                                     <div className="col-sm-7">
                                         <div className="btn-group float-end">
                                             <button className="btn btn-secondary btn-sm"
-                                                    onClick={() => addSet(exerciseId)}
+                                                    onClick={() => addSet(exercise._id)}
                                             >Add Set
                                             </button>
                                             <button className="btn btn-danger btn-sm"
-                                                    onClick={() => removeSet(exerciseId)}
+                                                    onClick={() => removeSet(exercise._id)}
                                             >Remove Set
                                             </button>
                                         </div>
