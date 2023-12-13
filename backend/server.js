@@ -27,6 +27,7 @@ const getProgram = require('./routes/get-program')
 const createExercise = require('./routes/create-exercises')
 const updateSet = require('./routes/update-set-exercises')
 const removeExercises = require('./routes/remove-exercises')
+const updateExercises = require('./routes/update-exercises')
 
 app.use('/', login);
 app.use('/', signUp);
@@ -37,6 +38,7 @@ app.use('/', getProgram);
 app.use('/',createExercise);
 app.use('/',updateSet);
 app.use('/',removeExercises);
+app.use('/',updateExercises);
 
 // Start the server
 app.listen(port, () => {

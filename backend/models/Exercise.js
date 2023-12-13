@@ -8,9 +8,9 @@ const ExerciseSchema = new mongoose.Schema({
     min: Number,
     max: Number,
     order: Number,
-    weak: Number,
-    sets: Array,
-    no_of_sets: Number
+    week: Number,
+    increase_weight: Number,
+    sets: [{ reps: Number, weight: Number }],
 });
 
 module.exports = mongoose.model('Exercise', ExerciseSchema);
